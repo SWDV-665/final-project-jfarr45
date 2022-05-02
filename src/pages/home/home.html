@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-list>
+
+  <ion-item *ngFor="let user of loadUsers(); let i = index">
+    <h2>
+      Welcome {{user.name}}!
+    </h2>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Select a Job: </ion-label>
+    <ion-select placeholder="Select One">
+      <ion-option *ngFor="let job of loadJobs(); let i = index">{{job.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Date of Measure: </ion-label>
+    <ion-input type="date"></ion-input>
+  </ion-item>
+</ion-list>
+
+</ion-content>

@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Measure Tops
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  
+<form [formGroup]="profileForm"(ngSubmit)="onSubmit()">
+  <h1>Measure Form</h1>
+  <div >
+  <label>
+    Unit Number:
+    <input type="text" formControlName="unit_number">
+  </label>
+  </div>
+  
+  <div>
+    <label>
+      Countertop Type:
+      <select id="Item" formControlName="countertop_type" required>
+        <option [ngValue]="null" [disabled]="true" >Choose one...</option>
+        <option *ngFor="let c of countertop_types" [ngValue]="c">{{ c }}</option>
+      </select>
+    </label>
+  </div>
+  
+  <div *ngIf="profileForm.get('countertop_type').value == 'Straight'">
+  <label>
+    Back Wall Length:
+    <input type="text" formControlName="back_wall_length" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Straight'">
+  <label>
+    Back Wall Depth:
+    <input type="text" formControlName="back_wall_depth" required>
+  </label>
+  </div>
+  
+  <div *ngIf="profileForm.get('countertop_type').value == 'Lshape Left'">
+  <label>
+    Left Wall Length:
+    <input type="text" formControlName="left_wall_length" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Lshape Left'">
+  <label>
+    Left Wall Depth:
+    <input type="text" formControlName="left_wall_depth" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Lshape Left'">
+  <label>
+    Back Wall Length:
+    <input type="text" formControlName="back_wall_length" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Lshape Left'">
+  <label>
+    Back Wall Depth:
+    <input type="text" formControlName="back_wall_depth" required>
+  </label>
+  </div>
+  
+  <div *ngIf="profileForm.get('countertop_type').value == 'Lshape Right'">
+  <label>
+    Back Wall Length:
+    <input type="text" formControlName="back_wall_length" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Lshape Right'">
+  <label>
+    Back Wall Depth:
+    <input type="text" formControlName="back_wall_depth" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Lshape Right'">
+  <label>
+    Right Wall Length:
+    <input type="text" formControlName="right_wall_length" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Lshape Right'">
+  <label>
+    Right Wall Depth:
+    <input type="text" formControlName="right_wall_depth" required>
+  </label>
+  </div>
+  
+  <div *ngIf="profileForm.get('countertop_type').value == 'Ushape'">
+  <label>
+    Left Wall Length:
+    <input type="text" formControlName="left_wall_length" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Ushape'">
+  <label>
+    Left Wall Depth:
+    <input type="text" formControlName="left_wall_depth" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Ushape'">
+  <label>
+    Back Wall Length:
+    <input type="text" formControlName="back_wall_length" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Ushape'">
+  <label>
+    Back Wall Depth:
+    <input type="text" formControlName="back_wall_depth" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Ushape'">
+  <label>
+    Right Wall Length:
+    <input type="text" formControlName="right_wall_length" required>
+  </label>
+  </div>
+  <div *ngIf="profileForm.get('countertop_type').value == 'Ushape'">
+  <label>
+    Right Wall Depth:
+    <input type="text" formControlName="right_wall_depth" required>
+  </label>
+  </div>
+  
+  
+  <div>
+  <label>
+    Left End Finish:
+    <select id="Left Finish" formControlName="left_finish" required>
+      <option [ngValue]="null" [disabled]="true" >Choose one...</option>
+      <option *ngFor="let c of finishes" [ngValue]="c">{{ c }}</option>
+    </select>
+  </label>
+  </div>
+  <div>
+  <label>
+    Left End Splash:
+    <select id="Left Splash" formControlName="left_endsplash" required>
+     <option [ngValue]="null" [disabled]="true" >Choose one...</option>
+     <option *ngFor="let c of endsplash" [ngValue]="c">{{ c }}</option>
+  </select>
+  </label>
+  </div>
+  <div>
+  <label>
+    Right End Finish:
+    <select id="Right Finish" formControlName="right_finish" required>
+      <option [ngValue]="null" [disabled]="true" >Choose one...</option>
+      <option *ngFor="let c of finishes" [ngValue]="c">{{ c }}</option>
+    </select>
+  </label>
+  </div>
+  <div>
+  <label>
+    Right End Splash:
+    <select id="Right Splash" formControlName="right_endsplash" required>
+      <option [ngValue]="null" [disabled]="true" >Choose one...</option>
+      <option *ngFor="let c of endsplash" [ngValue]="c">{{ c }}</option>
+  </select>
+  </label>
+  </div>
+  
+  <div class="card-footer text-center border-top-0">
+    <button class="btn btn-primary mr-1" (click)="addCountertop()" [disabled]="!profileForm.valid">Add Countertop</button>
+    <a href="mailto:lescommercial@lesmith.com"><button class="btn btn-secondary" type="button" (click)="onSubmit()">Finish Job</button></a>
+  </div>
+  
+  
+</form>
+
+  <p>
+    Form Status: {{ profileForm.status }}
+  </p>
+
+</ion-content>
